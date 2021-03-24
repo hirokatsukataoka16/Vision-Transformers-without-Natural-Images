@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pre-training without Natural Images</title>
+    <link rel="stylesheet" type="text/css" href="./pvg.css">
+    <link rel="shortcut icon" type="image/png" href="./img/cc_logo_1_crop.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+<script type="text/javascript" src="./header.js"></script>
+
+<style>
+a.myclass {
+    color:#DE382D;
+    text-decoration: underline
+}
+</style>
+
+<style>
+a.link {
+    text-decoration: underline
+}
+</style>
+
+
+<h1 align="center" style="font-size: 30pt;"><b>Can Vision Transformers Learn<br>without Natural Images?</b></h1><br/>
+
+<center>
+    <font color="#c7254e">arXiv pre-print</font><br><br>
+    <a href="" class="">Kodai Nakashima</a><sup>1</sup> &emsp; <a href="http://hirokatsukataoka.net/" class="">Hirokatsu Kataoka</a><sup>1</sup> &emsp; <a href="" class="">Asato Matsumoto</a><sup>1,2</sup> &emsp; <a href="" class="">Kenji Iwata</a><sup>1</sup> &emsp; <a href="https://mmai.tech/" class="">Nakamasa Inoue</a><sup>3</sup> &emsp;<br>
+    1: AIST &emsp; 2: Univ. of Tsukuba &emsp; 3: TITech<br><br>
+    <a href="" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Paper</a>
+    <a href="" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Code</a>
+    <a href="https://github.com/hirokatsukataoka16/FractalDB-Pretrained-ResNet-PyTorch" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Dataset</a>
+    <br><br>
+    <img src="./img/visualization.png" style="width: 100%;"/>
+</center>
+
+<br>
+<h2>Abstract</h2>
+<p>
+Can we complete pre-training of Vision Transformers (ViT) without natural images and human-annotated labels? Although a pre-trained ViT seems to heavily rely on a large-scale dataset and human-annotated labels, recent large-scale datasets contain several problems in terms of privacy violations, inadequate fairness protection, and labor-intensive annotation. In the present paper, we pre-train ViT without any image collections and annotation labor. We experimentally verify that our proposed framework partially outperforms sophisticated Self-Supervised Learning (SSL) methods like SimCLRv2 and MoCov2 without using any natural images in the pre-training phase. Moreover, although the ViT pre-trained without natural images produces some different visualizations from ImageNet pre-trained ViT, it can interpret natural image datasets to a large extent. For example, the performance rates on the CIFAR-10 dataset are as follows: our proposal 97.6 vs. SimCLRv2 97.4 vs. ImageNet 98.0.
+</p>
+
+<br>
+<h2>Contributions</h2>
+We clarify that the FractalDB under the FDSL framework is more effective for ViT compared to CNN. The performance of FractalDB-10k pre-trained ViT is similar to those approaches with supervised learning, and slightly surpasses the self-supervised ImageNet with SimCLRv2 pre-trained ViT. Here, on the CIFAR-10 dataset the scores are as follows: FractalDB 97.6 vs. SimCLRv2 97.4 vs. ImageNet 98.0. Importantly, the FractalDB pre-trained ViT does not require any natural images and human annotation in the pre-training. The following graph illustrates that FractalDB pre-trained ViT exhibits much higher training accuracy in early training epochs. The accuracy of FractalDB is much closer to that of ImageNet pre-training.
+<br><br>
+<center>
+        <img src="./img/pretraining_effect.png" style="width: 70%;"/>
+</center>
+
+<br><br><br>
+<h2>Experimental Results</h2>
+
+We compare the performance of FractalDB pre-trained ViT with {ImageNet-1k, ImageNet-100, Places-365, Places-30} pre-trained ViT  on representative datasets inaddition to training from scrach with additional fine-tuning datasets. ImageNet-100 and Places-30 are randomly selected categories from ImageNet-1k and Places-365.    Moreover, we also evaluate SSL methods with {Jigsaw, Rotation, MoCov2, SimCLRv2} on ImageNet-1k. Here, we show the effectiveness of the proposed method in compared properties, namely human supervision with natural images and self supervisionwith natural images (see also the following tables).
+<br><br>
+<center>
+        <img src="./img/vsSL.png" style="width: 85%;"/>
+</center>
+<br>
+<center>
+        <img src="./img/vsSSL.png" style="width: 85%;"/>
+</center>
+
+<br><br>
+<h2>Attention map</h2>
+
+The following figures illustrate attention maps in ViT with different pre-training datasets. The FractalDB-1k pre-trained ViT focuses on the object areas (Figure (b)) as well as ImageNet pre-training (Figure (a)). Moreover, the FractalDB-10k pre-trained ViT looks at more specific areas (Figure (c)) compared to FractalDB-1k pre-training. Figure (d) shows attention maps in fractal images. From the figures, the FractalDB pre-training seems to recognized by observing contour lines. We believe that the recognition of complex and distant contour lines enabled the extraction of features from a wide area.
+<br>
+<center>
+        <img src="./img/attention.png" style="width: 65%;"/>
+</center>
+
+<br>
+<h2>Citation</h2>
+@inproceedings{Nakashima_arXiv2021,<br>
+&emsp;author     = {Nakashima, Kodai and Kataoka, Hirokatsu and Matsumoto, Asato and Iwata, Kenji and Inoue, Nakamasa},<br>
+&emsp;title      = {Can Vision Transformers Learn without Natural Images?},<br>
+&emsp;booktitle    = {CoRR:2103.xxxxx},<br>
+&emsp;year       = {2021}<br>
+}
+<br><br>
+
+<a name="dataset"><h2>Dataset Download</h2></a>
+<ul>
+    <li>
+        FractalDB-1k (1k categories x 1k instances; Total 1M images).
+        <a href="https://drive.google.com/file/d/1KKqz0H7i_TXFMa2oJtcfry9bmAxyS_SS/view?usp=sharing">[Dataset (13GB)]</a>
+    </li>
+    <li>
+        FractalDB-60 (60 well-known categories x 1k instances; Total 60k images).
+        <a href="https://drive.google.com/file/d/1F0aEogTScpABjJhNZJaCFT-J8mkdP86o/view?usp=sharing">[Dataset (1.2GB)]</a>
+    </li>
+</ul>
+<br><br>
+
+<h2>Acknowledgement</h2></a>
+<ul>
+    <li> This paper is based on results obtained from a project subsidized by the New Energy and Industrial Technology Development Organization (NEDO).</li>
+    <li> Computational resource of AI Bridging Cloud Infrastructure (ABCI) provided by National Institute of Advanced Industrial Science and Technology (AIST) was used.</li>
+</ul>
+
+<br><br><br>
+<script type="text/javascript" src="./footer.js"></script>
+</body></html>

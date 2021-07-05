@@ -129,3 +129,33 @@ a:hover {
 	color:#DE382D;
 	font-weight: bold;
 }
+
+.delta .btn{display:inline-block;margin:6px;font-size:inherit;line-height:1.42;padding:0.6em 1.6em;font-weight:normal;border-width:1px;border-style:solid;background:transparent;border-radius:0.25em;cursor:pointer;font-family:"Booster Next FY", "Avenir Next", Avenir, sans-serif;user-select:none;vertical-align:bottom;background-color:transparent;border-width:1px;border-style:solid;box-shadow:0 1.31em 0 0 rgba(255, 255, 255, 0.1) inset;transition:box-shadow 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), border-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)}
+.delta .btn:active{box-shadow:0 1.31em 0.2em 0 rgba(0, 0, 0, 0.08) inset;transition:box-shadow 0.1s}
+ 
+.delta .btn-primary{background-color:#52C11F;background-image:linear-gradient(-45deg, #52C11F, #7ccc14);color:#E6EAEF;border-top-color:#8ae660;border-left-color:#5ddb23;border-right-color:#5ddb23;border-bottom-color:#2d6911}
+.delta .btn-primary:hover{background-image:linear-gradient(-45deg, #56ca20, #82d515)}
+.delta .btn-primary:active{color:#2d6911;text-shadow:0 1px 0 rgba(255, 255, 255, 0.2);background-color:#4eb81e;background-image:linear-gradient(-45deg, #4eb81e, #76c313);border-top-color:#2d6911;border-left-color:#47a71b;border-right-color:#47a71b;border-bottom-color:#47a71b}
+
+.delta .btn-gray {
+  background-color: #6D6F7F;
+  background-image: linear-gradient(-45deg, #6D6F7F, #61708b);
+  color: #E6EAEF;
+  border-top-color: #a2a4b0;
+  border-left-color: #7c7e8f;
+  border-right-color: #7c7e8f;
+  border-bottom-color: #3e3f48;
+}
+.delta .btn-gray:hover {
+  background-image: linear-gradient(-45deg, #727484, #657591);
+}
+.delta .btn-gray:active {
+  color: #3e3f48;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  background-color: #686a7a;
+  background-image: linear-gradient(-45deg, #686a7a, #5d6b85);
+  border-top-color: #3e3f48;
+  border-left-color: #5f616f;
+  border-right-color: #5f616f;
+  border-bottom-color: #5f616f;
+}
